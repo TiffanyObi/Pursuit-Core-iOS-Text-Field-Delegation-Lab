@@ -17,6 +17,8 @@ The following code will show you what the new string will be in the `textField:s
 
 ```swift
 // https://stackoverflow.com/questions/25138339/nsrange-to-rangestring-index
+
+
 func textField(_ textField: UITextField,
                shouldChangeCharactersIn range: NSRange,
                replacementString string: String) -> Bool {
