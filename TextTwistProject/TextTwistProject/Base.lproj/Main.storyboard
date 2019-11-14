@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RandomWord" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksQ-qx-oCG">
-                                <rect key="frame" x="90" y="229" width="234" height="21"/>
+                                <rect key="frame" x="90" y="227" width="234" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -28,39 +28,50 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYb-Ql-coI">
-                                <rect key="frame" x="167" y="544" width="80" height="30"/>
-                                <state key="normal" title="ResetGame"/>
+                                <rect key="frame" x="167" y="542" width="80" height="32"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <state key="normal" title="Start Over">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="resetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BBL-SP-DQy"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bfE-lu-Yt1">
-                                <rect key="frame" x="50" y="365" width="314" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type answer here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bfE-lu-Yt1">
+                                <rect key="frame" x="50" y="363" width="314" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" keyboardAppearance="alert" returnKeyType="done"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58x-4M-Gse">
-                                <rect key="frame" x="182.5" y="691" width="49.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="20" y="689" width="55" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYh-BU-eAB">
+                                <rect key="frame" x="339" y="689" width="55" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.58731339237497004" green="0.93636006327100241" blue="0.96130555868148804" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="RYb-Ql-coI" firstAttribute="top" secondItem="bfE-lu-Yt1" secondAttribute="bottom" constant="145" id="4Ea-YF-Sl4"/>
-                            <constraint firstItem="58x-4M-Gse" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8Tr-mA-iCI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XVV-1S-E8A" secondAttribute="trailing" constant="20" id="9Zc-Pn-Jb5"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="58x-4M-Gse" secondAttribute="bottom" constant="150" id="IPZ-Qn-DrO"/>
+                            <constraint firstItem="58x-4M-Gse" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Dap-Kd-8fb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="58x-4M-Gse" secondAttribute="bottom" constant="150" id="EW8-8I-ZqZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kYh-BU-eAB" secondAttribute="trailing" constant="20" id="GTG-9L-Hle"/>
                             <constraint firstItem="XVV-1S-E8A" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="IcY-Ow-ztZ"/>
                             <constraint firstItem="bfE-lu-Yt1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="Jfi-La-pJf"/>
-                            <constraint firstItem="58x-4M-Gse" firstAttribute="top" secondItem="RYb-Ql-coI" secondAttribute="bottom" constant="117" id="MlH-4L-aVh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RYb-Ql-coI" secondAttribute="trailing" constant="167" id="O7o-ih-x8T"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bfE-lu-Yt1" secondAttribute="trailing" constant="50" id="TqX-nm-orx"/>
                             <constraint firstItem="XVV-1S-E8A" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="VJS-SF-rmO"/>
                             <constraint firstItem="ksQ-qx-oCG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="90" id="VxR-YO-Ehr"/>
                             <constraint firstItem="bfE-lu-Yt1" firstAttribute="top" secondItem="ksQ-qx-oCG" secondAttribute="bottom" constant="115" id="cH1-Uh-UM0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ksQ-qx-oCG" secondAttribute="trailing" constant="90" id="dta-bi-hU2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kYh-BU-eAB" secondAttribute="bottom" constant="150" id="gRm-Dv-erX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="RYb-Ql-coI" secondAttribute="bottom" constant="288" id="nOH-Mt-kTW"/>
                             <constraint firstItem="RYb-Ql-coI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="167" id="su7-jl-S5x"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -68,8 +79,9 @@
                     <connections>
                         <outlet property="displayRandomWord" destination="ksQ-qx-oCG" id="uzA-Rg-EUT"/>
                         <outlet property="inputTextField" destination="bfE-lu-Yt1" id="KzQ-Cz-Pob"/>
+                        <outlet property="loseLabel" destination="kYh-BU-eAB" id="mZe-rp-ldg"/>
                         <outlet property="nameLabel" destination="XVV-1S-E8A" id="FqQ-jW-CGL"/>
-                        <outlet property="scoreLabel" destination="58x-4M-Gse" id="tZU-Fd-3ub"/>
+                        <outlet property="winLabel" destination="58x-4M-Gse" id="tZU-Fd-3ub"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

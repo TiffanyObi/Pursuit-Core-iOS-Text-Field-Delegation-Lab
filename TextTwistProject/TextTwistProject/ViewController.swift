@@ -17,11 +17,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var inputTextField: UITextField!
     
     
-    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var winLabel: UILabel!
     
+    @IBOutlet weak var loseLabel: UILabel!
     
     var getRandomWord = Word.getRandomWord()
-    var score = 0
+    
+    var wins = 0
+    
+    var loses = 0
     
     //  var randomWordArray:[Character] = []
     
@@ -35,7 +39,8 @@ class ViewController: UIViewController {
         inputTextField.delegate = self
         nameLabel.text = "Try To Unscramble The Word!"
         displayRandomWord.text = getRandomWord.scrambled
-        scoreLabel.text = "Score:\(score)"
+        winLabel.text = "Hits:\(wins)"
+        loseLabel.text = "Misses: \(loses)"
         //  print(randomWordArray)
         
         
@@ -48,8 +53,10 @@ class ViewController: UIViewController {
         nameLabel.text = "Try To Unscramble The Word!"
         inputTextField.text = ""
         emptyStr = ""
-        score = 0
-        scoreLabel.text = "Score:\(score)"
+        wins = 0
+        loses = 0
+        winLabel.text = "Hits:\(wins)"
+        loseLabel.text = "Misses: \(loses)"
     }
     
     func getCorrectWord () {
@@ -58,12 +65,24 @@ class ViewController: UIViewController {
             nameLabel.text = "You Win! Restart The Game"
             let newRandomWord = Word.getRandomWord()
             getRandomWord = newRandomWord
+            
             displayRandomWord.text = getRandomWord.scrambled
             inputTextField.text = ""
             emptyStr = ""
-            score += 1
-            scoreLabel.text = "Score:\(score)"
-        } else { nameLabel.text = "Sorry. Wrong Answer! Try Again!"}
+            wins += 1
+            winLabel.text = "Hits:\(wins)"
+        } else if inputTextField.text != getRandomWord.unscrambled {
+            let newRandomWord = Word.getRandomWord()
+            getRandomWord = newRandomWord
+            
+            displayRandomWord.text = getRandomWord.scrambled
+            nameLabel.text = "Sorry. Wrong Answer! Try Again!"
+        loses += 1
+        inputTextField.text = ""
+        
+            loseLabel.text = "Misses: \(loses)"
+            
+        }
     }
 }
 
