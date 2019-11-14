@@ -17,8 +17,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var inputTextField: UITextField!
     
     
+    @IBOutlet weak var scoreLabel: UILabel!
+    
+    
     var getRandomWord = Word.getRandomWord()
-  
+    var score = 0
     
     //  var randomWordArray:[Character] = []
     
@@ -32,7 +35,7 @@ class ViewController: UIViewController {
         inputTextField.delegate = self
         nameLabel.text = "Try To Unscramble The Word!"
         displayRandomWord.text = getRandomWord.scrambled
-        
+        scoreLabel.text = "Score:\(score)"
         //  print(randomWordArray)
         
         
@@ -45,13 +48,21 @@ class ViewController: UIViewController {
         nameLabel.text = "Try To Unscramble The Word!"
         inputTextField.text = ""
         emptyStr = ""
+        score = 0
+        scoreLabel.text = "Score:\(score)"
     }
     
     func getCorrectWord () {
         if inputTextField.text == getRandomWord.unscrambled {
             
-             nameLabel.text = "You Win! Restart The Game"
-            
+            nameLabel.text = "You Win! Restart The Game"
+            let newRandomWord = Word.getRandomWord()
+            getRandomWord = newRandomWord
+            displayRandomWord.text = getRandomWord.scrambled
+            inputTextField.text = ""
+            emptyStr = ""
+            score += 1
+            scoreLabel.text = "Score:\(score)"
         } else { nameLabel.text = "Sorry. Wrong Answer! Try Again!"}
     }
 }
@@ -107,9 +118,7 @@ extension ViewController: UITextFieldDelegate {
         
         }
         
-    func rightAnswer () {
-        
-    }
+   
 }
 
 
