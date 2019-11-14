@@ -17,12 +17,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var inputTextField: UITextField!
     
     
-    var getRandomWord = Word.getRandomWord().scrambled
+    var getRandomWord = Word.getRandomWord()
     
     
     //  var randomWordArray:[Character] = []
     
-    // var emptyArr:[Character] = []
+    var emptyStr = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,14 +31,25 @@ class ViewController: UIViewController {
         
         inputTextField.delegate = self
         nameLabel.text = "Try To Unscramble The Word!"
-        displayRandomWord.text = getRandomWord
+        displayRandomWord.text = getRandomWord.scrambled
         
         //  print(randomWordArray)
         
         
     }
     
+    @IBAction func resetButton(_ sender: UIButton) {
+        displayRandomWord.text = Word.getRandomWord().scrambled
+        nameLabel.text = "Try To Unscramble The Word!"
+        inputTextField.text = ""
+    }
     
+    func getCorrectWord () {
+        if inputTextField.text == getRandomWord.unscrambled {
+            
+             nameLabel.text = "You Win! Restart The Game"
+        } else { nameLabel.text = "Sorry. Wrong Answer! Try Again!"}
+    }
 }
 
 extension ViewController: UITextFieldDelegate {
@@ -57,12 +68,19 @@ extension ViewController: UITextFieldDelegate {
         if displayRandomWord.text?.contains(string) ?? false {
             
             
+            emptyStr.append(string)
             
             displayRandomWord.text?.remove(at: (displayRandomWord.text?.firstIndex(of: Character(string)))!)
-            print(Word.getRandomWord().unscrambled)
+            
+           print(emptyStr)
             
         } else if string == "" {
+            
+            emptyStr.removeLast()
+            
             displayRandomWord.text?.insert(textField.text?.last ?? "a", at: displayRandomWord.text!.endIndex)
+            print(emptyStr)
+            
         } else {
             
             return false}
@@ -76,18 +94,15 @@ extension ViewController: UITextFieldDelegate {
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         
-        if inputTextField.text == Word.getRandomWord().unscrambled {
-            
-            nameLabel.text = "You Win!"
-        }
+        getCorrectWord()
+        
         return true
         
-    }
-    
-    
+        }
+        
     
 }
-
 
 
