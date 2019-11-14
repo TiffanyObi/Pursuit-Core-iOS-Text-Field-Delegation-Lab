@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     
     
     var getRandomWord = Word.getRandomWord()
-    
+  
     
     //  var randomWordArray:[Character] = []
     
@@ -39,15 +39,19 @@ class ViewController: UIViewController {
     }
     
     @IBAction func resetButton(_ sender: UIButton) {
-        displayRandomWord.text = Word.getRandomWord().scrambled
+        let newRandomWord = Word.getRandomWord()
+        getRandomWord = newRandomWord
+        displayRandomWord.text = getRandomWord.scrambled
         nameLabel.text = "Try To Unscramble The Word!"
         inputTextField.text = ""
+        emptyStr = ""
     }
     
     func getCorrectWord () {
         if inputTextField.text == getRandomWord.unscrambled {
             
              nameLabel.text = "You Win! Restart The Game"
+            
         } else { nameLabel.text = "Sorry. Wrong Answer! Try Again!"}
     }
 }
@@ -79,6 +83,7 @@ extension ViewController: UITextFieldDelegate {
             emptyStr.removeLast()
             
             displayRandomWord.text?.insert(textField.text?.last ?? "a", at: displayRandomWord.text!.endIndex)
+            
             print(emptyStr)
             
         } else {
@@ -102,7 +107,9 @@ extension ViewController: UITextFieldDelegate {
         
         }
         
-    
+    func rightAnswer () {
+        
+    }
 }
 
 
